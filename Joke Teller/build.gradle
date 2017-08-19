@@ -13,6 +13,7 @@
 /**Binary Plugins**/
 plugins {
 	id 'java'
+	id 'eclipse'
 }
 
 ////////////////////////////////////
@@ -34,13 +35,14 @@ sourceSets{
 /////THIS SECTION CONTAINS ALL REPOSITORIES AND DEPENDENCIES/////
 /////////////////////////////////////////////////////////////////
 
-//repositories{
-//
-//}
+repositories{
+	mavenCentral()
+}
 
-//dependencies{
-//
-//}
+dependencies{
+	/**Allows for StringUtils for swapCase**/
+	compile "org.apache.commons:commons-lang3:3.3.2"
+}
 
 /////////////////////////////////////////////////////////
 /////THIS SECTION CONTAINS ALL CUSTOM TASK AND TYPES/////
@@ -116,5 +118,6 @@ goodbye{
 }
 
 jar{
+	from configurations.compile.collect { zipTree it } 
 	manifest.attributes "Main-Class": "main/JokeTeller"
 }

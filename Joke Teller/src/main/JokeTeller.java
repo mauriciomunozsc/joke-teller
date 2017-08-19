@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class JokeTeller extends Jokes {
 	
 	//Random number generator 
@@ -45,7 +47,7 @@ public class JokeTeller extends Jokes {
 	public static void out() {
 		int random = rand.nextInt(3)+0;
 		
-		text.setText(Jokes.jokeMap.get(random));
+		text.setText(StringUtils.upperCase(Jokes.jokeMap.get(random)));
 		text.setFont (text.getFont ().deriveFont (64.0f));
 		
 		button.setFont(button.getFont().deriveFont(20.0f));
